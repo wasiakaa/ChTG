@@ -2,7 +2,7 @@
 Będziemy rozpatrywać spójne, nieskierowane grafy proste, to znaczy grafy, w
 których istnieje ścieżka między dowolnymi dwoma wierzchołkami, nie ma pętli
 ani krawędzi wielokrotnych. Kolorowanie wierzchołkowe grafu $G = (V, E)$ polega na przyporządkowaniu każdemu wierzchołkowi ze zbioru $V$ koloru ze zbioru
-$C = {1, 2, .,l}, l \in \mathbb{N}$. Kolorowanie jest właściwe, jeśli żade dwa wierzchołki połączone krawędzią nie mają tego samego koloru. Liczbą chromatyczną $\chi (G)$ grafu
+$C = \{ 1, 2, ...,l \}$, $l \in \mathbb{N}$. Kolorowanie jest właściwe, jeśli żade dwa wierzchołki połączone krawędzią nie mają tego samego koloru. Liczbą chromatyczną $\chi (G)$ grafu
 $G$ nazywamy najmniejszą liczbę kolorów potrzebną do przeprowadzenia właściwego kolorowania wierzchołkowego. Wyznaczenie liczby chromatycznej grafu
 $G$ oraz znalezienie właściwego kolorowania przy użyciu $\chi (G)$ kolorów są problemami **NP**-trudnymi. Istnieją jednak algorytmy przybliżone, pozwalające na
 znalezienie niekoniecznie optymalnego, ale właściwego kolorowania nawet dla
@@ -17,7 +17,7 @@ testami jednostkowymi.
 
 # 2 Algorytmy
 ## 2.1 Algorytm DSatur
-Stopniem saturacji wierzchołka $v$ grafu nazywamy liczbę różnych kolorów, którymi pokolorowani są sąsiedzi tego wierzchołka.
+Stopniem saturacji wierzchołka $v$ grafu nazywamy liczbę różnych kolorów, którymi pokolorowani są sąsiedzi tego wierzchołka.  
 Opis algorytmu:  
 1. Wejście: graf $G, k \in \mathbb{N}$  
 2. Znajdujemy niepokolorowany wierzchołek $v$ grafu $G$, którego stopień saturacji jest najwyższy. Jeśli jest więcej niż jeden taki wierzchołek, wybieramy jeden z tych, które mają najwyższy stopień w podgrafie indukowanym
