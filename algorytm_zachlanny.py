@@ -17,8 +17,3 @@ def greedy(G, k):
                         col[i-1] = j
                         col_numb[j-1] = col_numb[j-1] + 1
     return col
-
-
-g = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
-
-print(greedy(g, 2))
