@@ -15,5 +15,8 @@ def save_greedy_to_file(graph_to_color, filepath, k):
     return
 
 
-graph = load_graph_from_file("graph_example.txt")
-save_greedy_to_file(graph, "example_colored.txt", 2)
+graph = load_graph_from_file("graph_example_1.txt")
+save_greedy_to_file(graph, "example_colored_1.txt", 2)
+
+graph = load_graph_from_file("graph_example_2.txt")
+save_greedy_to_file(graph, "example_colored_2.txt", 3)
