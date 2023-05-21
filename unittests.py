@@ -1,8 +1,8 @@
 import unittest
 import statistics
 from statistics import mode
-from Coloring_algoritms import *
-from wczytywanie_grafu import *
+from coloring_algoritms import *
+from load_and_save_graph import *
 
 
 # Sprawdza czy żadne dwa sąsiadujące wierzchołki nie są pokolorowane na ten sam kolor
