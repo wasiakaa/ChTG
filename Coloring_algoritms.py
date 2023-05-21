@@ -3,17 +3,30 @@ import time
 import networkx as nx
 
 
-def rearrange_graph(G, ordered_vertices):  # G - graf, ordered_vertices - lista jego wierzchołków w kolejności
+# G - graf, ordered_vertices - lista jego wierzchołków w kolejności
+# Zamienia wierzchołki grafu G kolejnością tak, by odpowiadały kolejności ordered_vertices
+def rearrange_graph(G, ordered_vertices):
     newG = {}
     for v in ordered_vertices:
         newG[v] = G[v]
     return newG  # Graf z zadaną kolejnością wierzchołków
 
 
+# Zamienia kolejność w liście kolorowania, tak by kolorowanie odpowiadało grafowi wejściowemu, a nie posortowanemu
+def rearrange_coloring(coloring, ordered_vertices):
+    fixed_coloring = [0] * len(ordered_vertices)
+    it = 0
+    for v in ordered_vertices:
+        fixed_coloring[v-1] = coloring[it]
+        it += 1
+    return fixed_coloring
+
+
 def largest_first(G, k):
-    sorted_vertices = sorted(G, key=lambda v: len(G[v]), reverse=True)
-    sorted_graph = rearrange_graph(G, sorted_vertices)
-    return greedy(sorted_graph, k)
+    sorted_vertices = sorted(G, key=lambda v: len(G[v]), reverse=True)  # Sortuje G względem stopnia wierzchołków
+    #sorted_graph = rearrange_graph(G, sorted_vertices)
+    coloring = greedy_with_order(G, k, sorted_vertices)
+    return coloring
 
 
 def time_it(n):  # funkcja mierząca czas pracy algorytmu Largest First
@@ -98,13 +111,13 @@ def nx_graph_to_graph(nx_graph):  #zamienia graf z biblioteki nx na słownik wie
 
 
 # Przykład
-Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
-a = [4, 3, 2, 1]
-print(Graph)
-print(largest_first(Graph, 2))
-print(generate_random_graph(5,7))
-nds = list(nx.gnm_random_graph(1000,8000))
-print(nds[0])
-print(time_it(1000))
-print(smallest_last(Graph,2))
+# Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
+# a = [4, 3, 2, 1]
+# print(Graph)
+# print(largest_first(Graph, 2))
+# print(generate_random_graph(5,7))
+# nds = list(nx.gnm_random_graph(1000,8000))
+# print(nds[0])
+# print(time_it(1000))
+# print(smallest_last(Graph, 2))
 
