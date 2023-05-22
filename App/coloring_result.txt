@@ -1,0 +1,6 @@
+largest first = [2, 1, 3, 4, 1, 5, 4, 2, 3]
+smallest last = [2, 3, 4, 4, 3, 5, 1, 2, 1]
+dsatur = [2, 1, 4, 4, 1, 5, 3, 3, 2]
+largest first liczba kolorow = 5
+smallest last liczba kolorow = 5
+dsatur liczba kolorow = 5
