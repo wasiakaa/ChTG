@@ -26,6 +26,12 @@ def time_it_bipartite(n):  # funkcja mierząca czas pracy algorytmów kolorując
     return time_it(G, k)
 
 
+def time_it_random_tree(n):  # funkcja mierząca czas pracy algorytmów kolorujących dla dowolnych drzew
+    G = generate_random_tree(n)
+    k = n / 5
+    return time_it(G, k)
+
+
 def time_it(G, k):
     start_largest_first = time.time()
     largest_first(G, k)
@@ -36,11 +42,11 @@ def time_it(G, k):
     start_dsatur = time.time()
     dsatur(G, k)
     end_dsatur = time.time()
-    return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last,
-            end_dsatur - start_dsatur]
+    return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur - start_dsatur]
 
-n = 100
+n = 150
 print(time_it_random(n))
 print(time_it_complete(n))
 print(time_it_cycle(n))
 print(time_it_bipartite(n))
+print(time_it_random_tree(n))

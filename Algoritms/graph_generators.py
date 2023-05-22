@@ -17,6 +17,10 @@ def generate_bipartite_graph(n):
     return nx_graph_to_graph(nx.complete_bipartite_graph(int(n/2), int(n/2)))
 
 
+def generate_random_tree(n):
+    return nx_graph_to_graph(nx.random_tree(n))
+
+
 def nx_graph_to_graph(nx_graph):  # Zamienia graf z biblioteki nx na słownik wierzchołków i krawędzi
     graph = {}
     nodes = list(nx_graph)
