@@ -1,5 +1,6 @@
 from Algoritms.coloring_algoritms import *
 from Algoritms.graph_generators import *
+import time
 
 
 def time_it_random(n):  # funkcja mierząca czas pracy algorytmów kolorujących dla losowych grafów
@@ -44,7 +45,7 @@ def time_it(G, k): # funkcja mierząca czas pracy algorytmó dla konkretnego gra
     end_dsatur = time.time()
     return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur - start_dsatur]
 
-n = 150
+n = 1000
 print(time_it_random(n))
 print(time_it_complete(n))
 print(time_it_cycle(n))

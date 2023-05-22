@@ -24,10 +24,17 @@ def save_colorings_to_file(graph_to_color, filepath, k):
     f.close()
     return
 
+def run_example():
+    graph = load_graph_from_file("../Example_in/graph_example_1.txt")
+    save_colorings_to_file(graph, "../Example_out/example_colored_1.txt", 3)
 
-graph = load_graph_from_file("../Example_in/graph_example_1.txt")
-save_colorings_to_file(graph, "../Example_out/example_colored_1.txt", 2)
-print(graph)
+    graph = load_graph_from_file("../Example_in/graph_example_2.txt")
+    save_colorings_to_file(graph, "../Example_out/example_colored_2.txt", 2)
 
-graph = load_graph_from_file("../Example_in/graph_example_2.txt")
-save_colorings_to_file(graph, "../Example_out/example_colored_2.txt", 3)
+    graph = load_graph_from_file("../Example_in/graph_example_3.txt")
+    save_colorings_to_file(graph, "../Example_out/example_colored_3.txt", 2)
+
+    graph = load_graph_from_file("../Example_in/graph_example_4.txt")
+    save_colorings_to_file(graph, "../Example_out/example_colored_4.txt", 4)
+
+run_example()
