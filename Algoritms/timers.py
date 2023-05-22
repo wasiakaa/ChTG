@@ -32,7 +32,7 @@ def time_it_random_tree(n):  # funkcja mierząca czas pracy algorytmów koloruj�
     return time_it(G, k)
 
 
-def time_it(G, k):
+def time_it(G, k): # funkcja mierząca czas pracy algorytmó dla konkretnego grafu
     start_largest_first = time.time()
     largest_first(G, k)
     end_largest_first = time.time()
