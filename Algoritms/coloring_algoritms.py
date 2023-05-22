@@ -3,7 +3,7 @@ import sys
 from Algoritms.greedy_coloring_algorithm import *
 from Algoritms.dsatur import *
 import time
-import networkx as nx
+from graph_generators import *
 
 
 # # G - graf, ordered_vertices - lista jego wierzchołków w kolejności
@@ -60,38 +60,6 @@ def time_it (G, k):
     end_dsatur_2 = time.time()
     return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
 
-# def dsatur(G,k):
-#     v1 = sorted(G, key=lambda v: len(G[v]))[0]
-#     col = [0]*len(G)
-#     satur = [0]*len(G)
-#     for j in range(len(G)):
-#         equal_satur = []
-#         for i in range(len(G)):
-#             if col[i] == 0:
-#                 for v in G[i+1]:
-#                     if col[v-1] != 0:
-#                         for k in range(v-1):
-#                             if col[v-1] != col[k+1]:
-#                                 satur[i] = satur[i]+1
-#         if sorted(satur, reverse=True)[0] == sorted(satur, reverse=True)[1]:
-#             for m in range(len(G)):
-#                 if satur[m] == sorted(satur, reverse=True)[0]:
-#                     equal_satur.append(m+1)
-#             sorted_vertices
-#         else:
-#             v_col = sorted(satur, reverse=True)[0]
-#         for t in range(1, n+1):
-#             if col_numb[t-1] < k:  # sprawdzamy, czy kolor j nie został jeszcze użyty k razy
-#                 checksum = 0  # warunek sprawdza, czy kolor j nie jest zajęty przez sąsiadów
-#                 for v in G[i+1]:
-#                     if v < i+1:  # pokolorowani sąsiedzi wierzchołka i
-#                         if col[v-1] != t:          # sprawdzamy czy sąsiad v wierzchołka i
-#                             checksum = checksum    # nie ma koloru j
-#                         else:
-#                             checksum = checksum + 1
-#                 if checksum == 0:
-#                     col[i] = t  # kolorujemy wierzchołek i na kolor j
-#                     col_numb[t-1] = col_numb[t-1] + 1
 
 # def smallest_last(G,k):
 #     G2 = graph_to_nx_graph(G)
@@ -106,7 +74,8 @@ def time_it (G, k):
 def sec(pair):
     return pair[0]
 
-def smallest_last(G,k):
+
+def smallest_last(G, k):
     G2 = graph_to_nx_graph(G)
     n = len(G)
     sorted_vertices = [None]*n
@@ -130,14 +99,6 @@ def smallest_last_v2(G, k):
     return greedy_with_order(G, k, sl_order)
 
 
-def generate_complete_graph(n):
-    return nx_graph_to_graph(nx.complete_graph(n))
-
-
-def generate_random_graph(n, m):
-    return nx_graph_to_graph(nx.gnm_random_graph(n, m))
-
-
 def graph_to_nx_graph(G):
     nx_graph = nx.Graph()
     nx_graph.add_nodes_from(list(G.keys()))
@@ -145,18 +106,6 @@ def graph_to_nx_graph(G):
         for v in G[i+1]:
             nx_graph.add_edge(i+1, v)
     return nx_graph
-
-
-def nx_graph_to_graph(nx_graph):  #zamienia graf z biblioteki nx na słownik wierzchołków i krawędzi
-    graph = {}
-    nodes = list(nx_graph)
-    if nodes[0] == 0:
-        for v in nodes:
-            graph[v+1] = [x+1 for x in list(nx_graph.adj[v])]
-    else:
-        for v in nodes:
-            graph[v] = [x for x in list(nx_graph.adj[v])]
-    return graph
 
 
 # Przykład
