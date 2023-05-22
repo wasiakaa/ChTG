@@ -13,10 +13,6 @@ def generate_cycle_graph(n):
     return nx_graph_to_graph(nx.cycle_graph(n))
 
 
-def generate_empty_graph(n):  # Nie ma krawędzi
-    return nx_graph_to_graph(nx.empty_graph(n))
-
-
 def generate_bipartite_graph(n):
     return nx_graph_to_graph(nx.complete_bipartite_graph(n/2, n/2))
 
