@@ -1,1 +1,7 @@
-[2, 3, 1, 2][3, 2, 1, 2][2, 3, 1, 2]333[0.0, 0.0, 0.0]
+largest first = [2, 3, 1, 2]
+smallest last = [3, 2, 1, 2]
+dsatur = [2, 3, 1, 2]
+largest first liczba kolorow = 3
+smallest last liczba kolorow = 3
+dsatur liczba kolorow = 3
+czasy wykonania = [0.0, 0.0, 0.0]

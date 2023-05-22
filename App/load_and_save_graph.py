@@ -14,13 +14,13 @@ def load_graph_from_file(filepath):
 
 def save_colorings_to_file(graph_to_color, filepath, k):
     f = open(filepath, "w")  # "w" oznacza, że jeżeli plik nie isnieje, to zostanie utworozny, jeżeli istnieje, to go nadpiszemy
-    f.write(str(largest_first(graph_to_color, k)))
-    f.write(str(smallest_last(graph_to_color, k)))
-    f.write(str(dsatur(graph_to_color, k)))
-    f.write(str(max(largest_first(graph_to_color, k))))
-    f.write(str(max(smallest_last(graph_to_color, k))))
-    f.write(str(max(dsatur(graph_to_color, k))))
-    f.write(str(time_it(graph_to_color,k)))
+    f.write("largest first = " + str(largest_first(graph_to_color, k)) + '\n')
+    f.write("smallest last = " + str(smallest_last(graph_to_color, k)) + '\n')
+    f.write("dsatur = " + str(dsatur(graph_to_color, k)) + '\n')
+    f.write("largest first liczba kolorow = " + str(max(largest_first(graph_to_color, k))) + '\n')
+    f.write("smallest last liczba kolorow = " + str(max(smallest_last(graph_to_color, k))) + '\n')
+    f.write("dsatur liczba kolorow = " + str(max(dsatur(graph_to_color, k))) + '\n')
+    f.write("czasy wykonania = " + str(time_it(graph_to_color, k)) + '\n')
     f.close()
     return
 
