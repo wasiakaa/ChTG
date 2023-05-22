@@ -32,33 +32,33 @@ def largest_first(G, k):
     return coloring
 
 
-def time_it_random(n):  # funkcja mierząca czas pracy algorytmów kolorujących
-    # G = generate_complete_graph(n)
-    G = generate_random_graph(n, n*8)
-    k = n
-    start_largest_first = time.time()
-    largest_first(G, k)
-    end_largest_first = time.time()
-    start_smallest_last = time.time()
-    smallest_last(G, k)
-    end_smallest_last = time.time()
-    start_dsatur_2 = time.time()
-    dsatur_2(G, k)
-    end_dsatur_2 = time.time()
-    return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
-
-
-def time_it (G, k):
-    start_largest_first = time.time()
-    largest_first(G, k)
-    end_largest_first = time.time()
-    start_smallest_last = time.time()
-    smallest_last(G, k)
-    end_smallest_last = time.time()
-    start_dsatur_2 = time.time()
-    dsatur_2(G, k)
-    end_dsatur_2 = time.time()
-    return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
+# def time_it_random(n):  # funkcja mierząca czas pracy algorytmów kolorujących
+#     # G = generate_complete_graph(n)
+#     G = generate_random_graph(n, n*8)
+#     k = n
+#     start_largest_first = time.time()
+#     largest_first(G, k)
+#     end_largest_first = time.time()
+#     start_smallest_last = time.time()
+#     smallest_last(G, k)
+#     end_smallest_last = time.time()
+#     start_dsatur_2 = time.time()
+#     dsatur_2(G, k)
+#     end_dsatur_2 = time.time()
+#     return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
+#
+#
+# def time_it (G, k):
+#     start_largest_first = time.time()
+#     largest_first(G, k)
+#     end_largest_first = time.time()
+#     start_smallest_last = time.time()
+#     smallest_last(G, k)
+#     end_smallest_last = time.time()
+#     start_dsatur_2 = time.time()
+#     dsatur_2(G, k)
+#     end_dsatur_2 = time.time()
+#     return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
 
 
 # def smallest_last(G,k):
@@ -117,6 +117,6 @@ graph2 = {1: [2, 3], 2: [1, 9], 3: [1, 4, 6, 9], 4: [3, 5], 5: [4, 7], 6: [3, 7,
 # print(generate_random_graph(5,7))
 # nds = list(nx.gnm_random_graph(1000,8000))
 # print(nds[0])
-print(time_it_random(1000))
+# print(time_it_random(1000))
 #print(smallest_last(Graph, 2))
 

@@ -17,6 +17,10 @@ def generate_empty_graph(n):  # Nie ma krawędzi
     return nx_graph_to_graph(nx.empty_graph(n))
 
 
+def generate_bipartite_graph(n):
+    return nx_graph_to_graph(nx.complete_bipartite_graph(n/2, n/2))
+
+
 def nx_graph_to_graph(nx_graph):  # Zamienia graf z biblioteki nx na słownik wierzchołków i krawędzi
     graph = {}
     nodes = list(nx_graph)
