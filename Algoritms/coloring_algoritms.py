@@ -90,15 +90,28 @@ def time_it (G, k):
 #                     col[i] = t  # kolorujemy wierzchołek i na kolor j
 #                     col_numb[t-1] = col_numb[t-1] + 1
 
+# def smallest_last(G,k):
+#     G2 = graph_to_nx_graph(G)
+#     sorted_vertices=[None]*len(G)
+#     for i in range(len(G)):
+#         v_out = sorted(nx_graph_to_graph(G2), key=lambda v: len(nx_graph_to_graph(G2)[v]))[0]
+#         sorted_vertices[len(G)-1-i] = v_out
+#         G2.remove_node(v_out)
+#     sorted_graph = rearrange_graph(G, sorted_vertices)
+#     return greedy(sorted_graph, k)
+
+def sec(pair):
+    return pair[0]
+
 def smallest_last(G,k):
     G2 = graph_to_nx_graph(G)
-    sorted_vertices=[None]*len(G)
-    for i in range(len(G)):
-        v_out = sorted(nx_graph_to_graph(G2), key=lambda v: len(nx_graph_to_graph(G2)[v]))[0]
-        sorted_vertices[len(G)-1-i] = v_out
+    n = len(G)
+    sorted_vertices = [None]*n
+    for i in range(n):
+        v_out = sorted(list(G2.degree(list(G2.nodes()))), key=sec)[0][0]
+        sorted_vertices[n-1-i] = v_out
         G2.remove_node(v_out)
-    sorted_graph = rearrange_graph(G, sorted_vertices)
-    return greedy(sorted_graph, k)
+    return greedy_with_order(G, k, sorted_vertices)
 
 
 def generate_complete_graph(n):
@@ -137,5 +150,5 @@ Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
 # nds = list(nx.gnm_random_graph(1000,8000))
 # print(nds[0])
 print(time_it_random(300))
-# print(smallest_last(Graph, 2))
+print(smallest_last(Graph, 2))
 
