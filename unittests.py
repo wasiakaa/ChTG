@@ -1,5 +1,4 @@
 import unittest
-import statistics
 from statistics import mode
 from coloring_algoritms import *
 from load_and_save_graph import *

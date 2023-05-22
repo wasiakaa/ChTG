@@ -1,9 +1,10 @@
-from algorytm_zachlanny import *
+from greedy_coloring_algorithm import *
 import time
 import networkx as nx
+from dsatur import *
 
 
-# G - graf, ordered_vertices - lista jego wierzchołków w kolejności
+# # G - graf, ordered_vertices - lista jego wierzchołków w kolejności
 # Zamienia wierzchołki grafu G kolejnością tak, by odpowiadały kolejności ordered_vertices
 def rearrange_graph(G, ordered_vertices):
     newG = {}
@@ -29,15 +30,20 @@ def largest_first(G, k):
     return coloring
 
 
-def time_it(n):  # funkcja mierząca czas pracy algorytmu Largest First
-    #G = generate_complete_graph(n)
-    G = generate_random_graph(n,n*8)
+def time_it(n):  # funkcja mierząca czas pracy algorytmów kolorujących
+    # G = generate_complete_graph(n)
+    G = generate_random_graph(n, n*8)
     k = n
-    start = time.time()
+    start_largest_first = time.time()
     largest_first(G, k)
-    end = time.time()
-    return end - start
-
+    end_largest_first = time.time()
+    start_smallest_last = time.time()
+    smallest_last(G, k)
+    end_smallest_last = time.time()
+    start_dsatur_2 = time.time()
+    dsatur_2(G, k)
+    end_dsatur_2 = time.time()
+    return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
 
 # def dsatur(G,k):
 #     v1 = sorted(G, key=lambda v: len(G[v]))[0]
@@ -95,7 +101,7 @@ def graph_to_nx_graph(G):
     nx_graph.add_nodes_from(list(G.keys()))
     for i in range(len(G)):
         for v in G[i+1]:
-            nx_graph.add_edge(i+1,v)
+            nx_graph.add_edge(i+1, v)
     return nx_graph
 
 def nx_graph_to_graph(nx_graph):  #zamienia graf z biblioteki nx na słownik wierzchołków i krawędzi
@@ -118,6 +124,6 @@ def nx_graph_to_graph(nx_graph):  #zamienia graf z biblioteki nx na słownik wie
 # print(generate_random_graph(5,7))
 # nds = list(nx.gnm_random_graph(1000,8000))
 # print(nds[0])
-# print(time_it(1000))
+print(time_it(100))
 # print(smallest_last(Graph, 2))
 
