@@ -78,12 +78,27 @@ def time_it(n):  # funkcja mierząca czas pracy algorytmów kolorujących
 #                     col[i] = t  # kolorujemy wierzchołek i na kolor j
 #                     col_numb[t-1] = col_numb[t-1] + 1
 
+# def smallest_last(G,k):
+#     G2 = graph_to_nx_graph(G)
+#     sorted_vertices=[None]*len(G)
+#     for i in range(len(G)):
+#         G22=nx_graph_to_graph(G2)
+#         v_out = sorted(G22, key=lambda v: len(G22[v]))[0]
+#         sorted_vertices[len(G)-1-i] = v_out
+#         G2.remove_node(v_out)
+#     sorted_graph = rearrange_graph(G, sorted_vertices)
+#     return greedy(sorted_graph, k)
+
+def second(pair):
+    return pair[1]
+
 def smallest_last(G,k):
     G2 = graph_to_nx_graph(G)
-    sorted_vertices=[None]*len(G)
-    for i in range(len(G)):
-        v_out = sorted(nx_graph_to_graph(G2), key=lambda v: len(nx_graph_to_graph(G2)[v]))[0]
-        sorted_vertices[len(G)-1-i] = v_out
+    n = len(G)
+    sorted_vertices = [None]*n
+    for i in range(n):
+        v_out = sorted(list(G2.degree(list(G2.nodes()))), key=second)[0][0]
+        sorted_vertices[n-1-i] = v_out
         G2.remove_node(v_out)
     sorted_graph = rearrange_graph(G, sorted_vertices)
     return greedy(sorted_graph, k)
@@ -118,6 +133,7 @@ def nx_graph_to_graph(nx_graph):  #zamienia graf z biblioteki nx na słownik wie
 
 # Przykład
 # Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
+# G2 = graph_to_nx_graph(Graph)
 # a = [4, 3, 2, 1]
 # print(Graph)
 # print(largest_first(Graph, 2))
