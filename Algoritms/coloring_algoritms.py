@@ -1,7 +1,7 @@
-from greedy_coloring_algorithm import *
+from Algoritms.greedy_coloring_algorithm import *
+from Algoritms.dsatur import *
 import time
 import networkx as nx
-from dsatur import *
 
 
 # # G - graf, ordered_vertices - lista jego wierzchołków w kolejności
@@ -30,10 +30,22 @@ def largest_first(G, k):
     return coloring
 
 
-def time_it(n):  # funkcja mierząca czas pracy algorytmów kolorujących
+def time_it_random(n):  # funkcja mierząca czas pracy algorytmów kolorujących
     # G = generate_complete_graph(n)
     G = generate_random_graph(n, n*8)
     k = n
+    start_largest_first = time.time()
+    largest_first(G, k)
+    end_largest_first = time.time()
+    start_smallest_last = time.time()
+    smallest_last(G, k)
+    end_smallest_last = time.time()
+    start_dsatur_2 = time.time()
+    dsatur_2(G, k)
+    end_dsatur_2 = time.time()
+    return [end_largest_first - start_largest_first, end_smallest_last - start_smallest_last, end_dsatur_2 - start_dsatur_2]
+
+def time_it (G, k):
     start_largest_first = time.time()
     largest_first(G, k)
     end_largest_first = time.time()
@@ -78,27 +90,12 @@ def time_it(n):  # funkcja mierząca czas pracy algorytmów kolorujących
 #                     col[i] = t  # kolorujemy wierzchołek i na kolor j
 #                     col_numb[t-1] = col_numb[t-1] + 1
 
-# def smallest_last(G,k):
-#     G2 = graph_to_nx_graph(G)
-#     sorted_vertices=[None]*len(G)
-#     for i in range(len(G)):
-#         G22=nx_graph_to_graph(G2)
-#         v_out = sorted(G22, key=lambda v: len(G22[v]))[0]
-#         sorted_vertices[len(G)-1-i] = v_out
-#         G2.remove_node(v_out)
-#     sorted_graph = rearrange_graph(G, sorted_vertices)
-#     return greedy(sorted_graph, k)
-
-def second(pair):
-    return pair[1]
-
 def smallest_last(G,k):
     G2 = graph_to_nx_graph(G)
-    n = len(G)
-    sorted_vertices = [None]*n
-    for i in range(n):
-        v_out = sorted(list(G2.degree(list(G2.nodes()))), key=second)[0][0]
-        sorted_vertices[n-1-i] = v_out
+    sorted_vertices=[None]*len(G)
+    for i in range(len(G)):
+        v_out = sorted(nx_graph_to_graph(G2), key=lambda v: len(nx_graph_to_graph(G2)[v]))[0]
+        sorted_vertices[len(G)-1-i] = v_out
         G2.remove_node(v_out)
     sorted_graph = rearrange_graph(G, sorted_vertices)
     return greedy(sorted_graph, k)
@@ -132,14 +129,13 @@ def nx_graph_to_graph(nx_graph):  #zamienia graf z biblioteki nx na słownik wie
 
 
 # Przykład
-# Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
-# G2 = graph_to_nx_graph(Graph)
+Graph = {1: [2, 3], 2: [1, 3], 3: [1, 2, 4], 4: [3]}
 # a = [4, 3, 2, 1]
 # print(Graph)
 # print(largest_first(Graph, 2))
 # print(generate_random_graph(5,7))
 # nds = list(nx.gnm_random_graph(1000,8000))
 # print(nds[0])
-print(time_it(100))
+print(time_it_random(300))
 # print(smallest_last(Graph, 2))
 
