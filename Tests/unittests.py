@@ -1,7 +1,6 @@
 import unittest
 from statistics import mode
-from coloring_algoritms import *
-from load_and_save_graph import *
+from App.load_and_save_graph import *
 
 
 # Sprawdza czy żadne dwa sąsiadujące wierzchołki nie są pokolorowane na ten sam kolor
@@ -18,7 +17,7 @@ class MyTestCase(unittest.TestCase):
 # LARGEST FIRST
     def test_largest_first_1(self):
         # given
-        G = load_graph_from_file("graph_example_1.txt")
+        G = load_graph_from_file("../Example_in/graph_example_1.txt")
         k = 3
         expected_number_of_colors = 3
         # when
@@ -32,7 +31,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_largest_first_2(self):
         # given
-        G = load_graph_from_file("graph_example_2.txt")
+        G = load_graph_from_file("../Example_in/graph_example_2.txt")
         k = 2
         expected_number_of_colors = 3
         # when
@@ -46,7 +45,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_largest_first_3(self):
         # given
-        G = load_graph_from_file("graph_example_3.txt")
+        G = load_graph_from_file("../Example_in/graph_example_3.txt")
         k = 3
         expected_number_of_colors = 2
         # when
@@ -60,7 +59,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_largest_first_4(self):
         # given
-        G = load_graph_from_file("graph_example_3.txt")
+        G = load_graph_from_file("../Example_in/graph_example_3.txt")
         k = 2
         expected_number_of_colors = 4
         # when
@@ -74,7 +73,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_largest_first_5(self):
         # given
-        G = load_graph_from_file("graph_example_4.txt")
+        G = load_graph_from_file("../Example_in/graph_example_4.txt")
         k = 3
         expected_number_of_colors = 4
         # when
@@ -88,7 +87,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_largest_first_6(self):
         # given
-        G = load_graph_from_file("graph_example_4.txt")
+        G = load_graph_from_file("../Example_in/graph_example_4.txt")
         k = 4
         expected_number_of_colors = 3
         # when
@@ -103,7 +102,7 @@ class MyTestCase(unittest.TestCase):
 # SMALLEST LAST
     def test_smallest_last_1(self):
         # given
-        G = load_graph_from_file("graph_example_1.txt")
+        G = load_graph_from_file("../Example_in/graph_example_1.txt")
         k = 3
         expected_number_of_colors = 3
         # when
@@ -117,7 +116,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_smallest_last_2(self):
         # given
-        G = load_graph_from_file("graph_example_2.txt")
+        G = load_graph_from_file("../Example_in/graph_example_2.txt")
         k = 2
         expected_number_of_colors = 3
         # when
@@ -130,7 +129,7 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(is_coloring_correct(G, result))
     def test_smallest_last_3(self):
         # given
-        G = load_graph_from_file("graph_example_3.txt")
+        G = load_graph_from_file("../Example_in/graph_example_3.txt")
         k = 3
         expected_number_of_colors = 2
         # when
@@ -143,7 +142,7 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(is_coloring_correct(G, result))
     def test_smallest_last_4(self):
         # given
-        G = load_graph_from_file("graph_example_3.txt")
+        G = load_graph_from_file("../Example_in/graph_example_3.txt")
         k = 2
         expected_number_of_colors = 4
         # when
@@ -156,7 +155,7 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(is_coloring_correct(G, result))
     def test_smallest_last_5(self):
         # given
-        G = load_graph_from_file("graph_example_4.txt")
+        G = load_graph_from_file("../Example_in/graph_example_4.txt")
         k = 3
         expected_number_of_colors = 4
         # when
@@ -169,7 +168,7 @@ class MyTestCase(unittest.TestCase):
         self.assertTrue(is_coloring_correct(G, result))
     def test_smallest_last_6(self):
         # given
-        G = load_graph_from_file("graph_example_4.txt")
+        G = load_graph_from_file("../Example_in/graph_example_4.txt")
         k = 4
         expected_number_of_colors = 3
         # when
