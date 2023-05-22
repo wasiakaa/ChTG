@@ -184,14 +184,87 @@ class MyTestCase(unittest.TestCase):
         self.assertLessEqual(max_repetitions, k)
         self.assertTrue(is_coloring_correct(G, result))
 
-# DSatur
+# DSATUR
+    def test_dsatur_1(self):
+        # given
+        G = load_graph_from_file("../Example_in/graph_example_1.txt")
+        k = 3
+        expected_number_of_colors = 3
+        # when
+        result = dsatur(G, k)
+        number_of_colors = max(result)
+        max_repetitions = result.count(mode(result))
+        # then
+        self.assertEqual(number_of_colors, expected_number_of_colors)
+        self.assertLessEqual(max_repetitions, k)
+        self.assertTrue(is_coloring_correct(G, result))
 
-# def test_dsatur1(self):
-#     # given
-#     G1 =
-#     k =
-#     expected_result
+    def test_dsatur_2(self):
+        # given
+        G = load_graph_from_file("../Example_in/graph_example_2.txt")
+        k = 2
+        expected_number_of_colors = 3
+        # when
+        result = dsatur(G, k)
+        number_of_colors = max(result)
+        max_repetitions = result.count(mode(result))
+        # then
+        self.assertEqual(number_of_colors, expected_number_of_colors)
+        self.assertLessEqual(max_repetitions, k)
+        self.assertTrue(is_coloring_correct(G, result))
 
-# when
+    def test_dsatur_3(self):
+        # given
+        G = load_graph_from_file("../Example_in/graph_example_3.txt")
+        k = 3
+        expected_number_of_colors = 2
+        # when
+        result = dsatur(G, k)
+        number_of_colors = max(result)
+        max_repetitions = result.count(mode(result))
+        # then
+        self.assertEqual(number_of_colors, expected_number_of_colors)
+        self.assertLessEqual(max_repetitions, k)
+        self.assertTrue(is_coloring_correct(G, result))
 
-# then
+    def test_dsatur_4(self):
+        # given
+        G = load_graph_from_file("../Example_in/graph_example_3.txt")
+        k = 2
+        expected_number_of_colors = 4
+        # when
+        result = dsatur(G, k)
+        number_of_colors = max(result)
+        max_repetitions = result.count(mode(result))
+        # then
+        self.assertEqual(number_of_colors, expected_number_of_colors)
+        self.assertLessEqual(max_repetitions, k)
+        self.assertTrue(is_coloring_correct(G, result))
+
+    def test_dsatur_5(self):
+        # given
+        G = load_graph_from_file("../Example_in/graph_example_4.txt")
+        k = 3
+        expected_number_of_colors = 4
+        # when
+        result = dsatur(G, k)
+        number_of_colors = max(result)
+        max_repetitions = result.count(mode(result))
+        # then
+        self.assertEqual(number_of_colors, expected_number_of_colors)
+        self.assertLessEqual(max_repetitions, k)
+        self.assertTrue(is_coloring_correct(G, result))
+
+    def test_dsatur_6(self):
+        # given
+        G = load_graph_from_file("../Example_in/graph_example_4.txt")
+        k = 4
+        expected_number_of_colors = 3
+        # when
+        result = dsatur(G, k)
+        number_of_colors = max(result)
+        max_repetitions = result.count(mode(result))
+        # then
+        self.assertEqual(number_of_colors, expected_number_of_colors)
+        self.assertLessEqual(max_repetitions, k)
+        self.assertTrue(is_coloring_correct(G, result))
