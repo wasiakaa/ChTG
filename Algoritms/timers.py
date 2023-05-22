@@ -1,5 +1,5 @@
-from coloring_algoritms import *
-from graph_generators import *
+from Algoritms.coloring_algoritms import *
+from Algoritms.graph_generators import *
 
 
 def time_it_random(n):  # funkcja mierząca czas pracy algorytmów kolorujących dla losowych grafów

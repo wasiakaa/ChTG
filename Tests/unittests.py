@@ -106,7 +106,7 @@ class MyTestCase(unittest.TestCase):
         k = 3
         expected_number_of_colors = 3
         # when
-        result = largest_first(G, k)
+        result = smallest_last(G, k)
         number_of_colors = max(result)
         max_repetitions = result.count(mode(result))
         # then
@@ -120,59 +120,63 @@ class MyTestCase(unittest.TestCase):
         k = 2
         expected_number_of_colors = 3
         # when
-        result = largest_first(G, k)
+        result = smallest_last(G, k)
         number_of_colors = max(result)
         max_repetitions = result.count(mode(result))
         # then
         self.assertEqual(number_of_colors, expected_number_of_colors)
         self.assertLessEqual(max_repetitions, k)
         self.assertTrue(is_coloring_correct(G, result))
+
     def test_smallest_last_3(self):
         # given
         G = load_graph_from_file("../Example_in/graph_example_3.txt")
         k = 3
         expected_number_of_colors = 2
         # when
-        result = largest_first(G, k)
+        result = smallest_last(G, k)
         number_of_colors = max(result)
         max_repetitions = result.count(mode(result))
         # then
         self.assertEqual(number_of_colors, expected_number_of_colors)
         self.assertLessEqual(max_repetitions, k)
         self.assertTrue(is_coloring_correct(G, result))
+
     def test_smallest_last_4(self):
         # given
         G = load_graph_from_file("../Example_in/graph_example_3.txt")
         k = 2
         expected_number_of_colors = 4
         # when
-        result = largest_first(G, k)
+        result = smallest_last(G, k)
         number_of_colors = max(result)
         max_repetitions = result.count(mode(result))
         # then
         self.assertEqual(number_of_colors, expected_number_of_colors)
         self.assertLessEqual(max_repetitions, k)
         self.assertTrue(is_coloring_correct(G, result))
+
     def test_smallest_last_5(self):
         # given
         G = load_graph_from_file("../Example_in/graph_example_4.txt")
         k = 3
         expected_number_of_colors = 4
         # when
-        result = largest_first(G, k)
+        result = smallest_last(G, k)
         number_of_colors = max(result)
         max_repetitions = result.count(mode(result))
         # then
         self.assertEqual(number_of_colors, expected_number_of_colors)
         self.assertLessEqual(max_repetitions, k)
         self.assertTrue(is_coloring_correct(G, result))
+
     def test_smallest_last_6(self):
         # given
         G = load_graph_from_file("../Example_in/graph_example_4.txt")
         k = 4
         expected_number_of_colors = 3
         # when
-        result = largest_first(G, k)
+        result = smallest_last(G, k)
         number_of_colors = max(result)
         max_repetitions = result.count(mode(result))
         # then

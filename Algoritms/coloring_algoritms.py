@@ -2,7 +2,6 @@ import sys
 from Algoritms.greedy_coloring_algorithm import *
 from Algoritms.dsatur import *
 import time
-from graph_generators import *
 
 
 # # G - graf, ordered_vertices - lista jego wierzchołków w kolejności
@@ -85,6 +84,7 @@ def smallest_last(G, k):
         for w in G[v + 1]:
             degrees[w - 1] -= 1
         degrees[v] = sys.maxsize
+    sl_order.reverse()
     return greedy_with_order(G, k, sl_order)
 
 
