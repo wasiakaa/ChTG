@@ -1,5 +1,5 @@
 
-def dsatur_2(G, k):
+def dsatur(G, k):
     n = len(G)
     satur = [0] * n
     degree = find_degrees(G)
